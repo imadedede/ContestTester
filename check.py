@@ -19,6 +19,11 @@ PAIR_DELIMITERS         = [         # テストケースファイル内の入出
 # テスト対象プログラムの実行時間を制限する
 TIMEOUT_COMMAND         = ['timeout', '-k', '1', '5']
 
+# エラーコードを文字列に変換
+ERRCODE_TO_STR          = {
+    124 : 'TLE',
+}
+
 # テスト結果を出力
 class ResultPrinter():
     def __init__(self, input, expect, result):
@@ -38,7 +43,10 @@ class ResultPrinter():
         if stderr:
             output += '+stderr:\n{}'.format(stderr)
         if runtime_err:
-            output += "+Runtime Error:{}\n".format(runtime_err)
+            err_msg = ''
+            if runtime_err in ERRCODE_TO_STR:
+                err_msg = ' ' + ERRCODE_TO_STR[runtime_err]
+            output += "+Runtime Error:{}{}\n".format(runtime_err, err_msg)
         return output
     # 結果を判定して出力する
     def print(self):
