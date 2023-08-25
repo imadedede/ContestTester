@@ -59,7 +59,7 @@ class ResultPrinter():
 # シェルでプログラムを実行する
 class Shell():
     def __init__(self, program_file, stdinput):
-        self.program_file = program_file
+        self.program_file = './' + program_file
         self.stdinput = stdinput
     # 実行した結果の標準出力を取得
     def exec(self):
@@ -115,8 +115,8 @@ class TestCaseFile():
             print('No Execution Filename in Argment!!!!!!!!!')
             sys.exit()
         # 引数のファイルが存在するか確認
-        program_file = './' + self.program
-        test_case_file = self.program + TEST_CASE_EXTENSION
+        program_file = self.program
+        test_case_file = os.path.basename(self.program) + TEST_CASE_EXTENSION
         run_ok = os.path.exists(program_file) and os.path.exists(test_case_file)
         if not run_ok:
             print('No such file!!!!!!!')
