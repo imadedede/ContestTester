@@ -116,7 +116,7 @@ class TestCaseFile():
             sys.exit()
         # 引数のファイルが存在するか確認
         program_file = self.program
-        test_case_file = self.program + TEST_CASE_EXTENSION
+        test_case_file = os.path.basename(self.program) + TEST_CASE_EXTENSION
         run_ok = os.path.exists(program_file) and os.path.exists(test_case_file)
         if not run_ok:
             print('No such file!!!!!!!')
