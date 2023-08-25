@@ -7,13 +7,12 @@ import subprocess
 
 TEST_CASE_EXTENSION     = '.txt'    # テストケーファイルの拡張子
 CASE_DELIMITERS         = [         # テストケースファイル内のテストケース区切り
-    '__EXAMPLE_SPLITTER\n',
     '__TESTCASE\n',
-    '__CASE\n'
+    '__CASE\n',
 ]
 PAIR_DELIMITERS         = [         # テストケースファイル内の入出力例の区切り
-    '__PAIR_SPLITTER\n',
-    '__PAIR\n'
+    '__PAIR\n',
+    '__EXPECT\n',
 ]
 
 # テスト対象プログラムの実行時間を制限する
