@@ -1,5 +1,10 @@
 #!/bin/bash -eux
 
+if [ $# == 0 ]; then
+    echo "Please Input Your Source File to \$1 without Extention."
+    exit
+fi
+
 COMPILER=clang++
 EXT=.cpp
 
