@@ -58,7 +58,7 @@ class ResultPrinter():
 # シェルでプログラムを実行する
 class Shell():
     def __init__(self, program_file, stdinput):
-        self.program_file = './' + program_file
+        self.program_file = program_file
         self.stdinput = stdinput
     # 実行した結果の標準出力を取得
     def exec(self):
