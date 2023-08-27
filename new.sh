@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 
 if [ $# == 0 ]; then
     echo "Please Input Template File Name to \$1."

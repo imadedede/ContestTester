@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 
 if [ $# == 0 ]; then
     echo "Please Input Your Source File to \$1 without Extention."
