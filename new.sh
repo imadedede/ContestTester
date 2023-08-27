@@ -1,5 +1,15 @@
 #!/bin/bash -eux
 
+if [ $# == 0 ]; then
+    echo "Please Input Template File Name to \$1."
+    exit
+fi
+
+if [ "$#" == 1  ]; then
+    echo "Please Input Your Source File Name to \$2."
+    exit
+fi
+
 CURRENT_DIR="$(cd "$(dirname "$0")"; pwd)"
 TEMPLATE_DIR="$CURRENT_DIR/template"
 FILE_NAME=${1##*/}
