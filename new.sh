@@ -1,6 +1,7 @@
 #!/bin/bash -eux
 
-TEMPLATE_DIR=template
+CURRENT_DIR="$(cd "$(dirname "$0")"; pwd)"
+TEMPLATE_DIR="$CURRENT_DIR/template"
 SOURCE=$1
 DIST=$2
 
