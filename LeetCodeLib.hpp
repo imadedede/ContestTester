@@ -137,6 +137,14 @@ public:
         std::cout << "]" << "\n";
     }
 
+    // std::vector<vector<T> の中身を出力
+    template<typename T>
+    void VecVec(const std::vector<std::vector<T>> &vv) const {
+        for (const auto &v: vv) {
+            Vector(v);
+        }
+    }
+
     // ListNode の中身を出力
     void ListNode(const ListNode* node) const {
         Converter c;

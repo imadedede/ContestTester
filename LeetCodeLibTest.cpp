@@ -77,9 +77,7 @@ int main(void) {
     // 行列を取得
     {
         auto vvi = in.ParseCsvVec();
-        for (size_t i = 0; i < vvi.size(); i++) {
-            p.Vector(vvi[i]);
-        }
+        p.VecVec(vvi);
     }
     return 0;
 }
