@@ -86,12 +86,12 @@ class ImportTestCase():
         case_delimiter = self.check_delimiter(text, CASE_DELIMITERS)
         if not case_delimiter:
             print('No Test Cases!!!!!!')
-            sys.exit()
+            sys.exit(1)
         # 入出力ペア区切りの検出
         pair_delimiter = self.check_delimiter(text, PAIR_DELIMITERS)
         if not pair_delimiter:
             print('Invalid Format File!!!!!!')
-            sys.exit()
+            sys.exit(1)
         # テストケースの分割
         pre_test_cases = [test_case.split(pair_delimiter)
             for test_case in text.split(case_delimiter)
@@ -112,14 +112,14 @@ class TestCaseFile():
         # 引数があるか確認
         if not self.program:
             print('No Execution Filename in Argment!!!!!!!!!')
-            sys.exit()
+            sys.exit(1)
         # 引数のファイルが存在するか確認
         program_file = self.program
         test_case_file = os.path.basename(self.program) + TEST_CASE_EXTENSION
         run_ok = os.path.exists(program_file) and os.path.exists(test_case_file)
         if not run_ok:
             print('No such file!!!!!!!')
-            sys.exit()
+            sys.exit(1)
         return program_file, test_case_file
 
 # エントリポイント
@@ -137,3 +137,5 @@ if __name__ ==  '__main__':
         all_ok = ResultPrinter(input, expect, result).print() and all_ok
     if all_ok:
         print('OK!!! All TestCases are Clear!!!!!!!!!!!!')
+    else:
+        sys.exit(1)
