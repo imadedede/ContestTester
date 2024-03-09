@@ -16,7 +16,7 @@ ef
 [1, 2, 3]
 [11, 12, 13, 14]
 [21, 22]
-__PAIR
+__EXPECT
 abcabcbb
  
 true
@@ -38,4 +38,4 @@ ef
 []
 
 __TESTCASE
-__PAIR
+__EXPECT
