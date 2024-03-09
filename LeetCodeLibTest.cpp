@@ -79,5 +79,12 @@ int main(void) {
         auto vvi = in.ParseCsvVec();
         p.VecVec(vvi);
     }
+    // 空行列をプリント
+    {
+        vector<int> v;
+        p.Vector(v);
+        vector<vector<int>> vv;
+        p.VecVec(vv);
+    }
     return 0;
 }

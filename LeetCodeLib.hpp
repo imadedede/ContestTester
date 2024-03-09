@@ -129,17 +129,24 @@ public:
     // std::vector<T> の中身を出力
     template<typename T>
     void Vector(const std::vector<T> &v) const {
-        if (v.empty()) return;
+        if (v.empty()) {
+            std::cout << "[]\n";
+            return;
+        }
         std::cout << "[" << v[0];
         for (std::size_t i = 1; i < v.size(); i++) {
             std::cout << "," << v[i];
         }
-        std::cout << "]" << "\n";
+        std::cout << "]\n";
     }
 
     // std::vector<vector<T> の中身を出力
     template<typename T>
     void VecVec(const std::vector<std::vector<T>> &vv) const {
+        if (vv.empty()) {
+            std::cout << "\n";
+            return;
+        }
         for (const auto &v: vv) {
             Vector(v);
         }
