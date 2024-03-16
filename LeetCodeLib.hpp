@@ -126,18 +126,24 @@ public:
 // 標準出力する
 class Printer {
 public:
-    // std::vector<T> の中身を出力
-    template<typename T>
-    void Vector(const std::vector<T> &v) const {
-        if (v.empty()) {
+    template <class Container>
+    void Con(const Container &c) const {
+        if (c.cbegin() == c.cend()) {
             std::cout << "[]\n";
             return;
         }
-        std::cout << "[" << v[0];
-        for (std::size_t i = 1; i < v.size(); i++) {
-            std::cout << "," << v[i];
+        auto iter = c.cbegin();
+        std::cout << "[" << *iter;
+        for (iter++; iter != c.cend(); iter++) {
+            std::cout << "," << *iter;
         }
         std::cout << "]\n";
+    }
+
+    // std::vector<T> の中身を出力
+    template<typename T>
+    void Vector(const std::vector<T> &v) const {
+        Con(v);
     }
 
     // std::vector<vector<T> の中身を出力
