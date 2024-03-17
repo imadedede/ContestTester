@@ -37,15 +37,15 @@ class ResultPrinter():
     # NG の時の出力文字列を生成
     def ng(self, input, expect, stdout, stderr, runtime_err):
         output = ('NG...\n{}'
-                  '+EXPECT:\n{}'
-                  '+BUT:\n{}').format(input, expect, stdout)
+                  '- EXPECT:\n{}'
+                  '- BUT:\n{}').format(input, expect, stdout)
         if stderr:
-            output += '+stderr:\n{}'.format(stderr)
+            output += '- stderr:\n{}'.format(stderr)
         if runtime_err:
             err_msg = ''
             if runtime_err in ERRCODE_TO_STR:
                 err_msg = ' ' + ERRCODE_TO_STR[runtime_err]
-            output += "+Runtime Error:{}{}\n".format(runtime_err, err_msg)
+            output += "- Runtime Error:{}{}\n".format(runtime_err, err_msg)
         return output
     # 結果を判定して出力する
     def print(self):
