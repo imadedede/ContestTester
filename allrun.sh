@@ -1,8 +1,9 @@
 #!/bin/bash -eu
 
-files='./*.cpp'
+files=(./*.cpp)
+echo Solved Problem:"${#files[*]}"
 
-for f in $files ; do
+for f in "${files[@]}" ; do
     echo "$f"
     ./run.sh "$f"
     RET=$?
