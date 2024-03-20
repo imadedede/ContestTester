@@ -140,6 +140,20 @@ public:
         std::cout << "]\n";
     }
 
+    template <class Container>
+    void Pairs(const Container &c) const {
+        if (c.cbegin() == c.cend()) {
+            std::cout << "[]\n";
+            return;
+        }
+        auto iter = c.cbegin();
+        std::cout << "[{" << iter->first << ":" << iter->second << "}";
+        for (iter++; iter != c.cend(); iter++) {
+            std::cout << ",{" << iter->first << ":" << iter->second << "}";
+        }
+        std::cout << "]\n";
+    }
+
     // std::vector<T> の中身を出力
     template<typename T>
     void Vector(const std::vector<T> &v) const {
