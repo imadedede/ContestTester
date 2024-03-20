@@ -10,6 +10,7 @@ if [ "$#" == 1  ]; then
     exit 1
 fi
 
+TESTCASE_EXT='txt'
 CURRENT_DIR="$(cd "$(dirname "$0")"; pwd)"
 TEMPLATE_DIR="$CURRENT_DIR/template"
 FILE_NAME=${1##*/}
@@ -19,5 +20,10 @@ DIST=$2
 files=("$TEMPLATE_DIR/$ORIGIN_NAME."*)
 for f in "${files[@]}"; do
     EXT=${f##*.}
-    cp -vn "$f" "$DIST.$EXT"
+    DIST_FILE="$DIST.$EXT"
+    cp -vn "$f" "$DIST_FILE"
+
+    if [ "$EXT" != "$TESTCASE_EXT" ]; then
+        code "$DIST_FILE"
+    fi
 done
