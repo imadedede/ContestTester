@@ -16,8 +16,8 @@ FILE_NAME=${1##*/}
 ORIGIN_NAME=${FILE_NAME%.*}
 DIST=$2
 
-while read -r file
-do
-    EXT=${file##*.}
-    cp -vn "$file" "$DIST.$EXT"
-done < <(find "$TEMPLATE_DIR" -name "$ORIGIN_NAME.*")
+files=("$TEMPLATE_DIR/$ORIGIN_NAME."*)
+for f in "${files[@]}"; do
+    EXT=${f##*.}
+    cp -vn "$f" "$DIST.$EXT"
+done
