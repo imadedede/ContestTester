@@ -2,12 +2,12 @@
 
 if [ $# == 0 ]; then
     echo "Please Input Template File Name to \$1."
-    exit
+    exit 1
 fi
 
 if [ "$#" == 1  ]; then
     echo "Please Input Your Source File Name to \$2."
-    exit
+    exit 1
 fi
 
 CURRENT_DIR="$(cd "$(dirname "$0")"; pwd)"
