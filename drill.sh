@@ -3,7 +3,9 @@
 
 files=(./*.cpp)
 norma=3
-
+if [ "$#" -eq 1 ]; then
+    norma="$1"
+fi
 echo Solved Problem:"${#files[*]}"
 echo Daily Drill:"$norma"
 
